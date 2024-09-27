@@ -1,0 +1,6 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.FundamentalSubmission" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+    </style>
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">fundamentalSubmission</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="todo">TODO</string>
+    <string name="register">Register</string>
+    <string name="home">Home</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="finished">Finished</string>
+    <string name="dicoding_event">Dicoding Event</string>
+    <string name="upcoming_event">Upcoming Event</string>
+    <string name="finished_event">Finished Event</string>
+    <string name="recommendation_event_for_you">Recommendation event for you!</string>
+    <string name="judul">Judul</string>
+    <string name="deskripsi">deskripsi</string>
+    <string name="event_1">Event 1</string>
+</resources>
