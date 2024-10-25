@@ -33,6 +33,12 @@ interface ApiService {
         @Query("q") query: String
     ): Response<EventModel>
 
+    @GET("events")
+    suspend fun getNearestEvent(
+        @Query("active") active: Int = -1,
+        @Query("limit") limit: Int = 1
+    ): Response<EventModel>
+
     @GET("events/{id}")
     suspend fun getDetailEvent(
         @Path("id") id: Int

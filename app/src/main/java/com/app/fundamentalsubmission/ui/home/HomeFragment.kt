@@ -1,4 +1,4 @@
-package com.app.fundamentalsubmission.ui
+package com.app.fundamentalsubmission.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,12 +12,13 @@ import com.app.fundamentalsubmission.ViewModelsFactory
 import com.app.fundamentalsubmission.adapter.EventHorizontalAdapter
 import com.app.fundamentalsubmission.adapter.EventVerticalAdapter
 import com.app.fundamentalsubmission.databinding.FragmentHomeBinding
+import com.app.fundamentalsubmission.ui.MainViewModel
 
 class HomeFragment : Fragment() {
 
     private lateinit var bind: FragmentHomeBinding
     private val mainViewModel by viewModels<MainViewModel> {
-        ViewModelsFactory.getInstance()
+        ViewModelsFactory.getInstance(requireActivity())
     }
 
     override fun onCreateView(

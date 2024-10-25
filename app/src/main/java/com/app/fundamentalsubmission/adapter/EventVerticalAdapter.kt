@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.fundamentalsubmission.databinding.ListEventBinding
 import com.app.fundamentalsubmission.di.models.ListEventsItem
-import com.app.fundamentalsubmission.ui.DetailActivity
+import com.app.fundamentalsubmission.ui.detail.DetailActivity
 import com.bumptech.glide.Glide
 
 class EventVerticalAdapter: ListAdapter<ListEventsItem, EventVerticalAdapter.ViewHolder>(DIFF_CALLBACK) {

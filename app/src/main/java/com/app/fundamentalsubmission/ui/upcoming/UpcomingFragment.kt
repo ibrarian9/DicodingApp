@@ -1,4 +1,4 @@
-package com.app.fundamentalsubmission.ui
+package com.app.fundamentalsubmission.ui.upcoming
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,15 +12,16 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.fundamentalsubmission.ViewModelsFactory
 import com.app.fundamentalsubmission.adapter.EventVerticalAdapter
-import com.app.fundamentalsubmission.databinding.FragmentFinishedBinding
+import com.app.fundamentalsubmission.databinding.FragmentUpcomingBinding
 import com.app.fundamentalsubmission.di.models.ListEventsItem
+import com.app.fundamentalsubmission.ui.MainViewModel
 import kotlinx.coroutines.launch
 
-class FinishedFragment : Fragment() {
+class UpcomingFragment : Fragment() {
 
-    private lateinit var bind: FragmentFinishedBinding
+    private lateinit var bind: FragmentUpcomingBinding
     private val mainViewModel by viewModels<MainViewModel> {
-        ViewModelsFactory.getInstance()
+        ViewModelsFactory.getInstance(requireActivity())
     }
 
     override fun onCreateView(
@@ -28,7 +29,7 @@ class FinishedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        bind = FragmentFinishedBinding.inflate(inflater, container, false)
+        bind = FragmentUpcomingBinding.inflate(inflater, container, false)
 
         val adapter = EventVerticalAdapter()
 
@@ -44,13 +45,13 @@ class FinishedFragment : Fragment() {
                 adapter.submitList(events)
             }
 
-            fun messageError(string: String){
+            fun messageError(string: String) {
                 Toast.makeText(requireContext(), string, Toast.LENGTH_SHORT).show()
             }
 
-            mainViewModel.finishedEvent.observe(viewLifecycleOwner) {
+            mainViewModel.upcomingEvents.observe(viewLifecycleOwner) {
                 it?.let {
-                    updateEventList(it.listEvents)
+                   updateEventList(it.listEvents)
                 } ?: run {
                     messageError("Failed to initialize data")
                 }
@@ -60,7 +61,7 @@ class FinishedFragment : Fragment() {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     lifecycleScope.launch {
                         if (!query.isNullOrEmpty()) {
-                            mainViewModel.getSearchFinishedEvent(q = query).observe(viewLifecycleOwner) {
+                            mainViewModel.getSearchUpcomingEvent(q = query).observe(viewLifecycleOwner) {
                                 it?.let {
                                     updateEventList(it.listEvents)
                                 }?: run {
@@ -73,14 +74,13 @@ class FinishedFragment : Fragment() {
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-                    return false
+                   return false
                 }
             })
         }
 
-        mainViewModel.loadAllFinishedEvent(40)
+        mainViewModel.loadAllUpcomingEvent(40)
 
         return bind.root
     }
-
 }

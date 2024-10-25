@@ -7,7 +7,6 @@ import androidx.lifecycle.asFlow
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.app.fundamentalsubmission.di.MainRepository
-import com.app.fundamentalsubmission.di.models.Event
 import com.app.fundamentalsubmission.di.models.EventModel
 import kotlinx.coroutines.launch
 
@@ -21,6 +20,9 @@ class MainViewModel(private val repo: MainRepository): ViewModel() {
     private val _upcomingEvents = MutableLiveData<EventModel?>()
     val upcomingEvents: LiveData<EventModel?> get() = _upcomingEvents
 
+    private val _finishedEvents = MutableLiveData<EventModel?>()
+    val finishedEvent: LiveData<EventModel?> get() = _finishedEvents
+
     fun loadAllUpcomingEvent(limit: Int) {
         if (!hasLoadedUpcoming) {
             viewModelScope.launch {
@@ -30,9 +32,6 @@ class MainViewModel(private val repo: MainRepository): ViewModel() {
             }
         }
     }
-
-    private val _finishedEvents = MutableLiveData<EventModel?>()
-    val finishedEvent: LiveData<EventModel?> get() = _finishedEvents
 
     fun loadAllFinishedEvent(limit: Int) {
         if (!hasLoadedFinishing) {
@@ -44,16 +43,16 @@ class MainViewModel(private val repo: MainRepository): ViewModel() {
         }
     }
 
-    suspend fun getDetailEvent(id: Int): LiveData<Event> {
-        return repo.getDetailEvent(id).asFlow().asLiveData()
-    }
-
     suspend fun getSearchUpcomingEvent(q: String): LiveData<EventModel> {
         return repo.getSearchUpcomingEvent(query = q).asFlow().asLiveData()
     }
 
     suspend fun getSearchFinishedEvent(q: String): LiveData<EventModel> {
         return repo.getSearchFinishedEvent(query = q).asFlow().asLiveData()
+    }
+
+    fun getThemeSet(): LiveData<Boolean> {
+        return repo.getTheme()
     }
 
 }

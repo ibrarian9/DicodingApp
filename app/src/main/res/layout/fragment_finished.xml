@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FinishedFragment">
+    tools:context=".ui.finished.FinishedFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,14 +27,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/finished_event"
-                android:textColor="@color/black"
                 android:textSize="25sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/recommendation_event_for_you"
-                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <com.google.android.material.card.MaterialCardView
@@ -44,14 +42,12 @@
                 app:strokeWidth="2dp"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="10dp"
-                app:cardBackgroundColor="@color/white"
                 android:layout_height="wrap_content">
 
                 <SearchView
                     android:id="@+id/searchEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
                     android:iconifiedByDefault="false"
                     android:queryBackground="@null"
                     android:queryHint="Cari Event" />

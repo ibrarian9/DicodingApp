@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.FundamentalSubmission" parent="Theme.MaterialComponents.Light.NoActionBar">
-
+    <style name="Theme.FundamentalSubmission" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

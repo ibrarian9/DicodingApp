@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -29,7 +29,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/dicoding_event"
-                    android:textColor="@color/black"
                     android:textSize="25sp" />
             </LinearLayout>
 
@@ -39,7 +38,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/upcoming_event"
-                android:textColor="@color/black"
                 android:textSize="15sp"
                 android:padding="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -62,7 +60,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/finished_event"
-                android:textColor="@color/black"
                 android:textSize="15sp"
                 android:padding="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/rvUpcoming"
